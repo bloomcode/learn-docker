@@ -36,6 +36,7 @@ Docker allows you to run containers. A container is a sandboxed process running 
    ```
    docker logs <friendly-name|container-id>
    ```
+4. To execute the container in foreground, use the option ```-it```. For example, ```docker run -it ubuntu bash``` allows to get access to a bash shell inside of a container
 
 ### Accessing the containers
 
@@ -53,4 +54,7 @@ docker port <friendly-name|container-id> <container-port>
 
 Data stored in containers gets removed when a container is deleted and re-created. For the data to be persited and made available post recreate, we need to use volumes. Binding volumes to a container is done using the option ```-v <host-dir>:<container-dir>```
 
-
+For example, the official Redis image stores logs and data into a ```/data``` directory. Any data which needs to be saved on the Docker Host, and not inside containers, should be stored in ```/opt/docker/data/redis```. The command to be used is: 
+```
+docker run -d --name redisMapped -v /opt/docker/data/redis:/data redis
+```

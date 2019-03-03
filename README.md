@@ -42,8 +42,15 @@ Docker allows you to run containers. A container is a sandboxed process running 
 1. For a service running in a container to be accessible by process outside the container, a port needs to be exposed on the host. Ports are bound when containers are started using the 
 ```-p <host-port>:<container-port>``` option
 2. A name can be defined for a running container using the option ```--name <container-name>```
-3. To expose the application on a randomly available port, just use the ```-p <container-port>``` option. To know the port that has been assigned, use ```docker port <friendly-name|container-id> <container-port>```
+3. To expose the application on a randomly available port, just use the ```-p <container-port>``` option. To know the port that has been assigned, use:
+```
+docker port <friendly-name|container-id> <container-port>
+```
 
 **Note:** By default, the port on the host is mapped to 0.0.0.0, which means all IP addresses. You can specify a particular IP address when you define the port mapping, for example, ```-p 127.0.0.1:6379:6379```
 
-### Accessing the containers
+### Persisting data
+
+Data stored in containers gets removed when a container is deleted and re-created. For the data to be persited and made available post recreate, we need to use volumes. Binding volumes to a container is done using the option ```-v <host-dir>:<container-dir>```
+
+

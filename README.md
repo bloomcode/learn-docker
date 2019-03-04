@@ -58,3 +58,26 @@ For example, the official Redis image stores logs and data into a ```/data``` di
 ```
 docker run -d --name redisMapped -v /opt/docker/data/redis:/data redis
 ```
+
+## Deploy Static HTML Website as a container
+
+- Docker Images are built based on the contents of a Dockerfile. The Dockerfile is a list of instructions describing how to deploy your application.
+
+    ```
+    FROM nginx:alpine
+    COPY . /usr/share/nginx/html
+    ```
+
+    The first line defines our base image. The second line copies the content of the current directory into a particular location inside the container.
+
+- Build the static HTML image using the below command: 
+
+    ```
+    docker build -t webserver-image:v1 .
+    ```
+- You can view a list of all the images on the host using ```docker images```
+
+- Launch the newly built image providing the friendly name and tag. As it's a web server, bind port 80 to our host using the -p parameter.
+   ```
+   docker run -d -p 80:80 webserver-image:v1
+   ```

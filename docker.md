@@ -1,16 +1,16 @@
 # Docker
 
-| Task                                                         | Description                   |
-| ------------------------------------------------------------ | ----------------------------- |
-| Find an image                                                | docker search <image-name>    |
-| Launch a redis container (with latest version) in background | docker run -d redis           |
-| Launch a 3.2 version of a reds container in background       | docker run -d redis:3.2       |
-| List all running containers                                  | docker ps                     |
-| Details of a running container                               | docker inspect <friendly-name |
-|                                                              | docker logs <friendly-name    |
-|                                                              |                               |
-|                                                              |                               |
-|                                                              |                               |
+| Task                                                         | Description                                  |
+| ------------------------------------------------------------ | -------------------------------------------- |
+| Find an image                                                | docker search <image-name>                   |
+| Launch a redis container (with latest version) in background | docker run -d redis                          |
+| Launch a 3.2 version of a reds container in background       | docker run -d redis:3.2                      |
+| List all running containers                                  | docker ps                                    |
+| Details of a running container                               | docker inspect <friendly-name\|container-id> |
+| Logs of a running container                                  | docker logs <friendly-name\|container-id>    |
+| Launch a container in foreground                             | docker run -it ubuntu bash                   |
+|                                                              |                                              |
+|                                                              |                                              |
 
 ### Find running containers
 
